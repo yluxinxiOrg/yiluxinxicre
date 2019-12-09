@@ -99,7 +99,7 @@ Page({
       var animation = wx.createAnimation({
         transformOrigin: "50% 50%",
         duration: 300,
-        timingFunction: "linear"
+        timingFunction: "linear"//匀速
       });
       animation.rotate(360 * n).step();
       this.setData({
@@ -121,29 +121,29 @@ Page({
       //算概率
       var gailv = parseInt(Math.random() * 100);
       console.log(gailv);
-      if (gailv < 15) {
+      if (gailv <= 15) {
         whichdegs = degs[0];
         _this.data.detail += luck[0];
-      } else if (15 < gailv&&gailv < 55) {
+      } else if (15 < gailv&&gailv <= 30) {
         whichdegs = degs[1];
         _this.data.detail += luck[1];
-      } else if (55 < gailv && gailv  <80) {
+      } else if (30 < gailv && gailv <= 45) {
         whichdegs = degs[2]
         _this.data.detail += luck[2];
-      } else if (80 < gailv && gailv < 95) {
+      } else if (45 < gailv && gailv <= 60) {
         whichdegs = degs[3]
         _this.data.detail += luck[3];
-      } else if (95 < gailv && gailv < 100) {
+      } else if (60 < gailv && gailv <= 75) {
         whichdegs = degs[4]
         _this.data.detail += luck[4];
-      } else if (gailv == 99) {
+      } else if (75<gailv&&gailv<=100) {
         whichdegs = degs[5]
         _this.data.detail += luck[5];
       }
       var animation = wx.createAnimation({
         transformOrigin: "50% 50%",
         duration: 4 * 300 + whichdegs * 1.4,
-        timingFunction: "ease-out"
+        timingFunction: "ease-out"  //低速结束
       });
       animation.rotate(n * 360 + whichdegs).step();//d转到哪个盘
       this.setData({
@@ -166,7 +166,7 @@ Page({
       detail: "恭喜您获得",
       isclick: "start"
     })
-    _this.reset();
+    // _this.reset();
   },
   //重置动画
   reset: function () {
