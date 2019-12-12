@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/bigWheel/bigWheel",
     "pages/tasks/tasks",
     "pages/index/index",
