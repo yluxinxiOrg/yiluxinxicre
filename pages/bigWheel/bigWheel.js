@@ -1,9 +1,6 @@
-// pages/bigWheel/bigWheel.js
 var timer;
 var n = 1; //旋转圈数
 var whichdegs = "";//中奖项
-// var luck = ["谢谢参与", "18分抵用卷", "88分抵用卷", "skg榨汁机", "188分抵用卷", "288分抵用卷"];//定义奖项
-// var degs = [60, 120, 180, 240, 300, 360];// 定义旋转度数
 Page({
   data: {
     animationData: {},//动画
@@ -12,6 +9,7 @@ Page({
     detail: "恭喜您获得",//弹框内容
     topval:0,
     pic:'',
+    isVir:'',
     score:"",
   
     winnerdata:[{
@@ -81,8 +79,7 @@ Page({
   
   },
   start: function (e) {
-    var timestamp = (new Date()).valueOf();
-    console.log(timestamp);
+    var _this = this;
     wx.request({
       url: 'http://192.168.1.156:10000/prize/openprize',
       method: 'Get',
@@ -95,6 +92,11 @@ Page({
       success: function (data) {
         whichdegs = data.data.angle;
         _this.data.detail += data.data.prizeName;
+        _this.data.isVir = data.data.isVir;
+        _this.setData({
+          isVir: _this.data.isVir,
+        })
+        console.log(_this.data.isVir);
       },
       fail: function (error) {
         var timestamp = (new Date()).valueOf();
@@ -106,7 +108,6 @@ Page({
         })
       }
     })
-    var _this = this;
     n = 1;
     //开始事件以后置为停止事件（改为自动停止）
     this.setData({
@@ -218,8 +219,6 @@ Page({
         })
       },
       fail: function (error) {
-        var timestamp = (new Date()).valueOf();
-        console.log(timestamp);
         wx.showModal({
           title: '抱歉',
           content: '网络异常，请重试',

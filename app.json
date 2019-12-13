@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ag/ag",
     "pages/bigWheel/bigWheel",
     "pages/tasks/tasks",
     "pages/index/index",

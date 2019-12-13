@@ -1,0 +1,55 @@
+<!-- pages/ag/ag.wxml
+<text>pages/ag/ag.wxml</text>
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" bindtap="navigate">
+    <text class="title">{{title}}</text>
+  </view> -->
+  <!--button-->
+<view class="btn" bindtap="powerDrawer" data-statu="open">填写</view> 
+  
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+  
+ <!--drawer content-->
+ <view class="drawer_title">恭喜你</view> 
+ <view class="drawer_content"> 
+  <view class="top grid"> 
+   <label class="title col-0">姓名</label> 
+   <input class="input_base input_h30 col-1" name="rName"  placeholder="请输入姓名"></input> 
+  </view> 
+  <view class="top grid"> 
+   <label class="title col-0">电话</label> 
+   <input class="input_base input_h30 col-1" name="mobile"></input> 
+  </view> 
+  <view class="top grid">
+  <label class="title col-0">省市区</label>
+  <picker mode="region" bindchange="bindRegionChange">
+    <view class="title col-1">
+      {{region[0]}}
+    </view>
+     <view class="title col-1">
+      {{region[1]}}
+    </view>
+     <view class="title col-1">
+      {{region[2]}}
+    </view>
+  </picker>
+  </view>
+  <view class="top grid"> 
+   <label class="title col-0">地址</label> 
+   <input class="input_base input_h30 col-1" name="phone"></input> 
+  </view> 
+  <view class="top grid"> 
+   <label class="title col-0">标题</label> 
+   <input class="input_base input_h30 col-1" name="Email"></input> 
+  </view> 
+  <view class="top bottom grid"> 
+   <label class="title col-0">备注</label> 
+   <input class="input_base input_h30 col-1" name="bz"></input> 
+  </view> 
+ </view> 
+ <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view> 
+ </view>
